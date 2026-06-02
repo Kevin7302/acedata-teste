@@ -1,6 +1,6 @@
 # Avaliação Técnica - Acedata Software
 
-- Projeto desenvolvido em JavaScript (Node.js) como parte do processo seletivo para vaga de estágio.
+Projeto desenvolvido em JavaScript (Node.js) como parte do processo seletivo para vaga de estágio.
 
 ## Funcionalidades:
 
@@ -34,4 +34,4 @@
     - node app.js
 
 ## Autor:
-- Kevin Wallace
+Kevin Wallace
