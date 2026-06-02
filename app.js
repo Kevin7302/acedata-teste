@@ -1,3 +1,4 @@
+// Configuração da interface de entrada para interação com o usuário (leitura de dados)
 const readline = require('node:readline');
 const { stdin: input, stdout: output } = require('node:process');
 const rl = readline.createInterface({
@@ -14,15 +15,15 @@ function toAsk(question) {
 // Função para realizar o cálculo de salário do Exercício 1
 async function calculateSalary() {
     console.log("\nVocê escolheu o Exercício 1 - Calcular Salário");
-    console.log("==================================================");
+    console.log("======================================================");
 
     const hourSalary = Number(
-        await toAsk("\nInforme o valor do salário hora: ")
+        await toAsk("\nInforme o valor do salário hora usando ponto(.) para os centavos: ")
     );
 
     // Validação de entrada de dados
     if (isNaN(hourSalary) || hourSalary <= 0) {
-        console.log("\nDigite um número válido.");
+        console.log("\nDigite um número válido!");
         return;
     }
 
@@ -31,7 +32,7 @@ async function calculateSalary() {
     );
 
     if (isNaN(hoursWorked) || hoursWorked < 0) {
-        console.log("\nDigite um número válido.");
+        console.log("\nDigite um número válido!");
         return;
     }
 
@@ -40,7 +41,7 @@ async function calculateSalary() {
     );
 
     if (isNaN(children)) {
-        console.log("\nDigite um número válido.");
+        console.log("\nDigite um número válido!");
         return;
     }
 
@@ -57,26 +58,27 @@ async function calculateSalary() {
 
     const netSalary = grossSalary + familySalary;
 
-    console.log("\n\nResultado da pesquisa:")
-    console.log(`\nBruto: R$ ${grossSalary.toFixed(2)}`);
+    console.log("\n\n=== Resultado da pesquisa: ===")
+    console.log(`\nSalário Bruto: R$ ${grossSalary.toFixed(2)}`);
     console.log(`\nSalário Família: R$ ${familySalary.toFixed(2)}`);
     console.log(`\nSalário Líquido: R$ ${netSalary.toFixed(2)}`);
 }
 
 async function numericalSequence() {
     console.log("\nVocê escolheu o Exercício 2 - Sequência Numérica");
-    console.log("\n=====================================================");
+    console.log("\n=========================================================");
 
     const x = Number(
         await toAsk("\nInforme a quantidade de números que será digitada: ")
     );
 
     if (isNaN(x) || x <= 0) {
-        console.log("\nDigite uma quantidade válida.")
+        console.log("\nDigite uma quantidade válida!")
     }
 
     const sequence = [];
 
+    // number = Número digitado pelo usuário
     for (let counter = 1; counter <= x; counter++) {
         const number = Number(
             await toAsk(`\nInforme o ${counter}º número da sequência:`)
@@ -106,7 +108,7 @@ async function numericalSequence() {
         }
     }
 
-    console.log("\n\nResultado:")
+    console.log("\n\n=== Resultado: ===")
     console.log(`\nSequência digitada: ${sequence}`);
     console.log(`\nMaior número da sequência: ${biggest}.`);
     console.log(`\nMenor número da sequência: ${smallest}.\n\n`);
@@ -143,7 +145,7 @@ async function fibonacci() {
         sequenceFibo.push(next);
     }
 
-    console.log("\n\nResultado:")
+    console.log("\n\n=== Resultado: ===")
     console.log(`Sequência de Fibonacci de acordo com a quantidade de termos escolhida: ${sequenceFibo}...`);
 
     // Vrificação se o número digitado pelo usuário está dentro da sequência de Fibonacci
