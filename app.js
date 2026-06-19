@@ -40,7 +40,7 @@ async function calculateSalary() {
         await toAsk("\nDigite a quantidade de filhos menores de 14 anos:")
     );
 
-    if (isNaN(children)) {
+    if (isNaN(children) || children !== parseInt(children) || children < 0) {
         console.log("\nDigite um número válido!");
         return;
     }
@@ -76,6 +76,11 @@ async function numericalSequence() {
         console.log("\nDigite uma quantidade válida!")
     }
 
+    if (x < 2){
+        console.log("\nA sequência necessita de pelo menos 2 números.")
+        return;
+    };
+
     const sequence = [];
 
     // number = Número digitado pelo usuário
@@ -101,17 +106,25 @@ async function numericalSequence() {
     for (let n = 1; n < sequence.length; n++) {
         if (sequence[n] > biggest) {
             biggest = sequence[n];
-        }
+        } else if (sequence[n] > secondBiggest && sequence[n] !== biggest) {
+            secondBiggest = sequence[n];
+        };
 
         if (sequence[n] < smallest) {
             smallest = sequence[n];
-        }
+        };
+        
+        if (sequence.length < 2) {
+            console.log("A sequência precisa de no mínimo 2 números digitados.");
+            return;
+        };
     }
 
     console.log("\n\n=== Resultado: ===")
     console.log(`\nSequência digitada: ${sequence}`);
     console.log(`\nMaior número da sequência: ${biggest}.`);
-    console.log(`\nMenor número da sequência: ${smallest}.\n\n`);
+    console.log(`\nMenor número da sequência: ${smallest}.`);
+    console.log(`\nSegundo maior número da sequência: ${secondBiggest}.\n\n`);
 }
 
 async function fibonacci() {
