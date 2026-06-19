@@ -102,6 +102,7 @@ async function numericalSequence() {
     // Declaração de maior e menor número dentro do array
     let biggest = sequence[0];
     let smallest = sequence[0];
+    let secondBiggest = sequence[0];
 
     for (let n = 1; n < sequence.length; n++) {
         if (sequence[n] > biggest) {
